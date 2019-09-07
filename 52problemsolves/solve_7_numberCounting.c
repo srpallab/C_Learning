@@ -1,20 +1,22 @@
-#include <stdio.h>
+#include<stdio.h>
 
-void input(char *str){
-  int c, i=0;
-  while((c = getchar()) != '\n'){
-    str[i++] = c;
-  }
-  str[i] = '\0';
-}
 
-int main(){
+int main() {
   int T;
-  char str[100];
   scanf("%d", &T);
+  getchar();
   while (T--) {
-    input(str);
-    
+    char str[100000];
+    int v = 1;
+    scanf("%[^\n]", str);
+    //printf("%s\n", str);
+    for (int i = 0; str[i] != '\0'; i++) {
+      if (str[i] == ' ' && str[i+1] != ' ') {
+	v++;
+      }
+    }
+    printf("%d\n", v);
+    getchar();
   }
   return 0;
 }
